@@ -1,0 +1,18 @@
+# setup.cfg
+[metadata]
+name = openleadr-prototype
+version = 0.1
+author = Liz Lowe
+description = My OpenADR project
+long_description = file: README.md
+long_description_content_type = text/markdown
+url = https://github.com/your_username/myproject
+
+[options]
+packages = find:
+install_requires =
+    openleadr>=0.9.0
+    # Add any other dependencies here
+
+[options.packages.find]
+where = src
