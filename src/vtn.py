@@ -5,6 +5,7 @@ from functools import partial
 
 enable_default_logging()
 
+
 async def on_create_party_registration(registration_info):
     """
     Inspect the registration info and return a ven_id and registration_id.
@@ -17,6 +18,7 @@ async def on_create_party_registration(registration_info):
     else:
         return False
 
+
 async def on_register_report(ven_id, resource_id, measurement, unit, scale,
                              min_sampling_interval, max_sampling_interval):
     """
@@ -26,6 +28,7 @@ async def on_register_report(ven_id, resource_id, measurement, unit, scale,
     sampling_interval = min_sampling_interval
     return callback, sampling_interval
 
+
 async def on_update_report(data, ven_id, resource_id, measurement):
     """
     Callback that receives report data from the VEN and handles it.
@@ -33,11 +36,13 @@ async def on_update_report(data, ven_id, resource_id, measurement):
     for time, value in data:
         print(f"Ven {ven_id} reported {measurement} = {value} at time {time} for resource {resource_id}")
 
+
 async def event_response_callback(ven_id, event_id, opt_type):
     """
     Callback that receives the response from a VEN to an Event.
     """
     print(f"VEN {ven_id} responded to Event {event_id} with: {opt_type}")
+
 
 # Create the server object
 server = OpenADRServer(vtn_id='myvtn')
